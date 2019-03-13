@@ -1,0 +1,12 @@
+version: "3"
+
+services: 
+  app:
+    build:
+      context: .
+      dockerfile: development.Dockerfile
+    ports:
+     - 5000:5000
+    volumes:
+      - .:/usr/local/src/rigel/
+      - /usr/local/src/rigel/node_modules/

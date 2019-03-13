@@ -1,0 +1,32 @@
+{
+  "name": "@xarples/rigel",
+  "version": "0.0.1",
+  "description": "Simple user service",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./dist/server.js",
+    "start-dev": "tsnd ./src/server.ts",
+    "build": "tsc",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/xarples/rigel"
+  },
+  "keywords": [
+    "user",
+    "graphql",
+    "service"
+  ],
+  "author": "xarples",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/graphql": "^14.0.7",
+    "ts-node-dev": "^1.0.0-pre.32",
+    "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "apollo-server": "^2.4.8",
+    "graphql": "^14.1.1"
+  }
+}

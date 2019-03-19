@@ -1,0 +1,8 @@
+# import Query.*, Mutation.*, * from './clients/schema.graphql'
+# import Query.*, Mutation.*, * from './users/schema.graphql'
+
+interface MutationResponseInterface {
+  code: String!
+  success: Boolean!
+  message: String!
+}

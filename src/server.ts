@@ -1,10 +1,16 @@
 import { ApolloServer } from 'apollo-server'
 import { resolvers, typeDefs } from './schema'
+import { Prisma } from './prisma-client'
 
-const port = process.env.PORT || 5000
+const isDev: boolean = process.env.NODE_ENV !== 'production'
+const prisma = new Prisma({ endpoint: 'http://prisma:4466', debug: isDev })
+const port = +process.env.PORT || 5000
 const server = new ApolloServer({
   typeDefs,
-  resolvers
+  resolvers,
+  context: {
+    prisma
+  }
 })
 
 async function main () {
@@ -12,5 +18,10 @@ async function main () {
   console.log(`Server listening on ${url}`)
 }
 
-main()
+if (!module.parent) {
+  main()
+}
+
+export default server
+
 

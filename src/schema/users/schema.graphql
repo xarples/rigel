@@ -1,0 +1,45 @@
+type Query {
+  user(id: ID!): User
+  users: [User]
+}
+
+type Mutation {
+  createUser(user: UserInputCreate!): UserMutationResponse
+  updateUser(id: Int, username: String, payload: UserInputUpdate!): UserMutationResponse
+  deleteUser(id: Int, username: String): UserMutationResponse
+}
+
+type User {
+  id: ID!
+  firstName: String!
+  lastName: String
+  email: String!
+  username: String!
+  password: String!
+  client: Client!
+  createdAt: String
+  updatedAt: String
+}
+
+input UserInputCreate {
+  firstName: String!
+  lastName: String
+  email: String!
+  username: String!
+  password: String!
+  client: ClientInputCreate!
+}
+
+input UserInputUpdate {
+  firstName: String
+  lastName: String
+  email: String
+  username: String
+  password: String
+}
+type UserMutationResponse implements MutationResponseInterface {
+  code: String!
+  success: Boolean!
+  message: String!
+  user: User
+}

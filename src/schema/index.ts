@@ -1,15 +1,8 @@
-import { importSchema } from 'graphql-import'
-import { gql } from 'apollo-server'
-import clientResolvers from './clients/resolvers'
-import userResolvers from './users/resolvers'
+import { makeExecutableSchema } from 'apollo-server';
+import typeDefs from './typeDefs'
+import resolvers from './resolvers'
 
-const schema = importSchema('./src/schema/schema.graphql')
-
-console.log(schema)
-
-export const typeDefs = gql(schema)
-
-export const resolvers = {
-  ...clientResolvers,
-  ...userResolvers,
-}
+export default makeExecutableSchema({
+  typeDefs,
+  resolvers
+})

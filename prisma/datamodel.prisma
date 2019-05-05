@@ -1,19 +1,10 @@
-type Client {
-  id: ID! @unique
-  firstName: String!
-  lastName: String
-  email: String!
-  username: String! @unique
-  password: String!
-  users: [User]
-}
-
 type User {
-  id: ID! @unique
+  id: ID! @id
   firstName: String!
   lastName: String
-  email: String
+  email: String! @unique
   username: String! @unique
   password: String!
-  client: Client!
+  updatedAt: DateTime! @updatedAt
+  createdAt: DateTime! @createdAt
 }

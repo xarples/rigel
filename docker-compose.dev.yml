@@ -12,7 +12,7 @@ services:
       - /usr/local/src/rigel/node_modules/
 
   prisma:
-    image: prismagraphql/prisma:1.28
+    image: prismagraphql/prisma:1.32
     restart: always
     ports:
     - 4466:4466
